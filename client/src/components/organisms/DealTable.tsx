@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -16,11 +16,14 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import LinkAContact from "../molecules/LinkAContact";
 import { useAuth } from "@/hooks";
+import useContactDealStore from "@/store/contacts-deals";
+import { cn } from "@/lib/utils";
+import LinkButton from "../atoms/LinkButton";
 
 const DealTable = () => {
   const [searchTerm, setSearchTerm] = useState("");
+  const { deal_id, setContactDeal, email } = useContactDealStore();
 
   interface Deal {
     id: string;
@@ -41,16 +44,19 @@ const DealTable = () => {
 
   useEffect(() => {
     const getData = async () => {
-      const response = await fetch("http://127.0.0.1:4040/api/crm/daels/", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      });
-
-      const data = await response.json();
-      setDeals(data);
+      try {
+        const response = await fetch("http://127.0.0.1:4040/api/crm/deals/", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        const data = await response.json();
+        setDeals(data.deals);
+      } catch (error) {
+        console.error(error);
+      }
     };
 
     getData();
@@ -58,6 +64,15 @@ const DealTable = () => {
 
   const filteredData = deals.filter((item) =>
     item.id.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const onSelect = useCallback(
+    (id: string) => {
+      console.log("id", id);
+
+      setContactDeal(email, id);
+    },
+    [email, setContactDeal]
   );
 
   return (
@@ -91,7 +106,9 @@ const DealTable = () => {
               <span>Priority</span>
             </Button>
           </div>
-          <LinkAContact />
+          <LinkButton>
+            <span>Link a contact</span>
+          </LinkButton>
         </div>
       </CardHeader>
       <CardContent>
@@ -111,7 +128,14 @@ const DealTable = () => {
                 Object.values(item.associations || {})[0]?.results?.[0] || {};
 
               return (
-                <TableRow key={index}>
+                <TableRow
+                  onClick={() => onSelect(item.id)}
+                  className={cn(
+                    "cursor-pointer",
+                    deal_id === item.id && "bg-secondary border border-dashed "
+                  )}
+                  key={index}
+                >
                   <TableCell className="font-medium">{item.id}</TableCell>
                   <TableCell>{item.archived ? "Yes" : "No"}</TableCell>
                   <TableCell>

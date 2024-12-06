@@ -1,6 +1,7 @@
-from django.urls import path
-from . import views
+from django.urls import include, path
 
 urlpatterns = [
-    path('hello/', views.hello_world, name='hello_world'),
+    path('auth/', include('api.auth.urls')),  # Routes to the auth app
+    path('crm/', include('api.crm.urls')),    # Routes to the crm app
+    path('link/', include('api.link.urls')),    # Routes to the crm app
 ]

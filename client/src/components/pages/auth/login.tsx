@@ -18,8 +18,7 @@ import {
 } from "@/components/ui/form";
 import { useState } from "react";
 import { LuLoader } from "react-icons/lu";
-import { useAuth, useAxios } from "@/hooks";
-import { accessToken, Client } from "@/types";
+import { useAuth } from "@/hooks";
 import { toast } from "sonner";
 import GoogleOAuth from "@/components/atoms/GoogleOAuth";
 
@@ -59,8 +58,9 @@ const Login = () => {
 
     const { data, message, status } = await response.json();
 
-    if (status === true) {  
+    if (status === true) {
       setToken(data.accessToken);
+      localStorage.setItem("token", data.accessToken);
     } else {
       toast.error("Uh oh! Something went wrong.", {
         description: message,

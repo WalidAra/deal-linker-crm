@@ -131,3 +131,22 @@ This project is a fullstack application that integrates with HubSpot's private a
 [View Demo](your-demo-link)
 
 Replace placeholders like `your-username`, `your-email`, and `your-demo-link` with actual values. Let me know if you'd like further refinements!
+### Frontend Setup with Vite
+1. Navigate to the frontend directory:
+    ```bash
+    cd frontend
+    ```
+2. Install dependencies:
+    ```bash
+    npm install
+    ```
+3. Start the Vite development server:
+    ```bash
+    npm run dev
+    ```
+
+---
+
+## View the Website
+You can view the website via the following link:
+[View Website](https://drive.google.com/file/d/15slA1NUJmHMTca3h0-ovMPgxvrY7iChc/view?usp=sharing)

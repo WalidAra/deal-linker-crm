@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -16,10 +16,14 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import LinkADealDialog from "../molecules/LinkADealDialog";
 import { useAuth } from "@/hooks";
+import useContactDealStore from "@/store/contacts-deals";
+import { cn } from "@/lib/utils";
+import LinkButton from "../atoms/LinkButton";
 
 const ContactTable = () => {
+  const { email, deal_id, setContactDeal } = useContactDealStore();
+
   const [searchTerm, setSearchTerm] = useState("");
   const [contacts, setContacts] = useState([
     {
@@ -45,7 +49,7 @@ const ContactTable = () => {
     },
   ]);
 
-  const {token} = useAuth();
+  const { token } = useAuth();
 
   useEffect(() => {
     const getData = async () => {
@@ -70,6 +74,13 @@ const ContactTable = () => {
       contact.properties.lastname?.toLowerCase(),
       contact.properties.email?.toLowerCase(),
     ].some((field) => field?.includes(searchTerm.toLowerCase()))
+  );
+
+  const onSelect = useCallback(
+    (e: string) => {
+      setContactDeal(e, deal_id);
+    },
+    [deal_id, setContactDeal]
   );
 
   return (
@@ -104,7 +115,9 @@ const ContactTable = () => {
               <span>Priority</span>
             </Button>
           </div>
-          <LinkADealDialog />
+          <LinkButton>
+            <span>Link a deal</span>
+          </LinkButton>
         </div>
       </CardHeader>
 
@@ -123,7 +136,15 @@ const ContactTable = () => {
           </TableHeader>
           <TableBody>
             {filteredContacts.map((contact) => (
-              <TableRow key={contact.id}>
+              <TableRow
+                className={cn(
+                  "cursor-pointer ",
+                  email === contact.properties.email &&
+                    "bg-secondary border border-dashed "
+                )}
+                onClick={() => onSelect(contact.properties.email)}
+                key={contact.id}
+              >
                 <TableCell className="font-medium">
                   {contact.properties.email}
                 </TableCell>
