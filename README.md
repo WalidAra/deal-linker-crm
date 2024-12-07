@@ -126,8 +126,8 @@ This project is a fullstack application that integrates with HubSpot's private a
 ---
 
 ## Author
-- **Your Name**
-- **Email**: your-email@example.com
+- **Walid Araar**
+- **Email**: arawalid90@gmail.com
 - **GitHub**: [Your GitHub Profile](https://github.com/WalidAra)
 
 ---
