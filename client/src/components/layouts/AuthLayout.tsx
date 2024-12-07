@@ -11,11 +11,6 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
           {children}
         </div>
         <div className="hidden relative bg-foreground lg:block h-screen p-6">
-          {/* <img
-          src="/placeholder.svg"
-          alt="Image"
-          className="h-full w-full object-cover aspect-auto dark:brightness-[0.2] dark:grayscale"
-        /> */}
           <DotPattern
             className={cn(
               "[mask-image:linear-gradient(to_bottom_right,white,transparent,transparent)] "

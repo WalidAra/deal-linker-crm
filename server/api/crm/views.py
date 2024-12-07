@@ -12,7 +12,7 @@ CRM_KEY = os.environ.get('CRM_KEY', '')
 
 @csrf_exempt
 @api_view(['GET'])
-@permission_classes([AllowAny])
+@permission_classes([IsAuthenticated])
 def get_contacts(request):
 
     try:
@@ -30,7 +30,7 @@ def get_contacts(request):
 
 @csrf_exempt
 @api_view(['GET'])
-@permission_classes([AllowAny])
+@permission_classes([IsAuthenticated])
 def get_deals(request):
 
     try:
