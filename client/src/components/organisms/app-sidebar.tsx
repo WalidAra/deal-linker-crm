@@ -13,9 +13,9 @@ import {
   Trash2,
 } from "lucide-react"
 
-import { NavMain } from "@/components/nav-main"
-import { NavSecondary } from "@/components/nav-secondary"
-import { TeamSwitcher } from "@/components/team-switcher"
+import { NavMain } from "@/components/organisms/nav-main"
+import { NavSecondary } from "@/components/organisms/nav-secondary"
+import { TeamSwitcher } from "@/components/organisms/team-switcher"
 import {
   Sidebar,
   SidebarContent,

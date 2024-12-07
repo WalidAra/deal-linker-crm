@@ -8,7 +8,7 @@ This project is a fullstack application that integrates with HubSpot's private a
     - Display lists of contacts and deals.
     - Filter contacts and deals by name.
 3. **Linking**:
-    - Link multiple deals to a contact or vice versa.
+    - Link deal to a contact or vice versa.
     - Bulk selection for efficient linking.
 4. **Integration with HubSpot**:
     - Fetch contacts and deals via HubSpot API.
@@ -24,7 +24,7 @@ This project is a fullstack application that integrates with HubSpot's private a
 
 ### Frontend
 - React.js
-- State Management (React useState and useEffect)
+- State Management (React useState and useEffect and zustand)
 
 ---
 
@@ -34,37 +34,43 @@ This project is a fullstack application that integrates with HubSpot's private a
 - Python 3 installed on your machine.
 - Node.js and npm installed.
 
-### Backend Setup
+### Project Setup
 1. Clone the repository:
     ```bash
-    git clone https://github.com/your-username/charik-assessment.git
-    cd charik-assessment
+    git clone https://github.com/WalidAra/Charik-Fullstack-Technical-Assessment---Walid-Araar.git
+    cd Charik-Fullstack-Technical-Assessment---Walid-Araar
     ```
-2. Navigate to the backend directory and create a virtual environment:
+2. Install commitizen for better commit messages:
     ```bash
-    cd backend
+    npm install -g commitizen
+    ```
+
+### Backend Setup
+1. Navigate to the backend directory and create a virtual environment:
+    ```bash
+    cd server
     python3 -m venv env
     source env/bin/activate  # On Windows: env\Scripts\activate
     ```
-3. Install dependencies:
+2. Install dependencies:
     ```bash
     pip install -r requirements.txt
     ```
-4. Set up your HubSpot API key:
+3. Set up your HubSpot API key:
     In the backend directory, create a `.env` file:
     ```env
-    HUBSPOT_API_KEY=your_hubspot_api_key
+    CRM_KEY=your_hubspot_api_key
     ```
-5. Run the Django server:
+4. Run the Django server:
     ```bash
     python manage.py migrate
-    python manage.py runserver
+    python manage.py runserver PORT
     ```
 
 ### Frontend Setup
 1. Navigate to the frontend directory:
     ```bash
-    cd frontend
+    cd client
     ```
 2. Install dependencies:
     ```bash
@@ -72,7 +78,7 @@ This project is a fullstack application that integrates with HubSpot's private a
     ```
 3. Start the React development server:
     ```bash
-    npm start
+    npm run dev
     ```
 
 ---
@@ -85,8 +91,7 @@ This project is a fullstack application that integrates with HubSpot's private a
 - `.env`: Stores sensitive API keys and configuration.
 
 ### Frontend
-- `src/components`: Contains React components like Login, Register, Home, and Table.
-- `src/api`: Manages API calls to the backend.
+- `src/components`: Uses ATOMIC architecture Contains React components like Login, Register, Home, and Table and atomic ui components
 
 ---
 
@@ -99,7 +104,7 @@ This project is a fullstack application that integrates with HubSpot's private a
 
 ### Run the Application:
 1. Start both the backend and frontend servers.
-2. Navigate to `http://localhost:3000` in your browser.
+2. Navigate to `http://localhost:5173` in your browser.
 
 ### Features:
 - Log in or register to access the app.
@@ -109,8 +114,8 @@ This project is a fullstack application that integrates with HubSpot's private a
 ---
 
 ## Deployment
-- **Backend**: Deploy on platforms like Heroku, DigitalOcean, or AWS.
-- **Frontend**: Deploy on Vercel or Netlify.
+- **Backend**: Deploy on platforms like Heroku, DigitalOcean,render or AWS.
+- **Frontend**: Deploy on Vercel,Netlify or render.
 
 ---
 
@@ -123,30 +128,9 @@ This project is a fullstack application that integrates with HubSpot's private a
 ## Author
 - **Your Name**
 - **Email**: your-email@example.com
-- **GitHub**: [Your GitHub Profile](https://github.com/your-username)
+- **GitHub**: [Your GitHub Profile](https://github.com/WalidAra)
 
 ---
 
 ## Demo Video
-[View Demo](your-demo-link)
-
-Replace placeholders like `your-username`, `your-email`, and `your-demo-link` with actual values. Let me know if you'd like further refinements!
-### Frontend Setup with Vite
-1. Navigate to the frontend directory:
-    ```bash
-    cd frontend
-    ```
-2. Install dependencies:
-    ```bash
-    npm install
-    ```
-3. Start the Vite development server:
-    ```bash
-    npm run dev
-    ```
-
----
-
-## View the Website
-You can view the website via the following link:
-[View Website](https://drive.google.com/file/d/15slA1NUJmHMTca3h0-ovMPgxvrY7iChc/view?usp=sharing)
+[View Demo](https://drive.google.com/file/d/15slA1NUJmHMTca3h0-ovMPgxvrY7iChc/view?usp=sharing)
