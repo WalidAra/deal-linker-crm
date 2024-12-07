@@ -113,6 +113,16 @@ This project is a fullstack application that integrates with HubSpot's private a
 
 ---
 
+## Screenshots
+
+### Login Page
+![Login Page](./login.png)
+
+### Dashboard
+![Dashboard](./home.png)
+
+---
+
 ## Deployment
 - **Backend**: Deploy on platforms like Heroku, DigitalOcean,render or AWS.
 - **Frontend**: Deploy on Vercel,Netlify or render.
