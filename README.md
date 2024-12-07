@@ -138,7 +138,7 @@ This project is a fullstack application that integrates with HubSpot's private a
 ## Author
 - **Walid Araar**
 - **Email**: arawalid90@gmail.com
-- **GitHub**: [Your GitHub Profile](https://github.com/WalidAra)
+- **GitHub**: [WalidAra](https://github.com/WalidAra)
 
 ---
 
